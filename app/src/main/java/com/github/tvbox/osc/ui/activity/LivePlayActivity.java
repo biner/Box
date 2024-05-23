@@ -1174,7 +1174,16 @@ public class LivePlayActivity extends BaseActivity {
                     mVideoView.release();
                     shiyi_time = shiyiStartdate + "-" + shiyiEnddate;
                     isSHIYI = true;
-                    mVideoView.setUrl(currentLiveChannelItem.getUrl() + "?playseek=" + shiyi_time);
+                    // mVideoView.setUrl(currentLiveChannelItem.getUrl() + "?playseek=" + shiyi_time);
+                    
+                    String url = currentLiveChannelItem.getUrl();
+                    if (url.contains("?")) {
+                        url += "&playseek=" + shiyi_time;
+                    } else {
+                        url += "?playseek=" + shiyi_time;
+                    }
+                    mVideoView.setUrl(url);
+                    
                     mVideoView.start();
                     epgListAdapter.setShiyiSelection(position, true, timeFormat.format(date));
                     epgListAdapter.notifyDataSetChanged();
@@ -1213,7 +1222,16 @@ public class LivePlayActivity extends BaseActivity {
                     mVideoView.release();
                     shiyi_time = shiyiStartdate + "-" + shiyiEnddate;
                     isSHIYI = true;
-                    mVideoView.setUrl(currentLiveChannelItem.getUrl() + "?playseek=" + shiyi_time);
+                    // mVideoView.setUrl(currentLiveChannelItem.getUrl() + "?playseek=" + shiyi_time);
+
+                    String url = currentLiveChannelItem.getUrl();
+                    if (url.contains("?")) {
+                        url += "&playseek=" + shiyi_time;
+                    } else {
+                        url += "?playseek=" + shiyi_time;
+                    }
+                    mVideoView.setUrl(url);
+                    
                     mVideoView.start();
                     epgListAdapter.setShiyiSelection(position, true, timeFormat.format(date));
                     epgListAdapter.notifyDataSetChanged();
